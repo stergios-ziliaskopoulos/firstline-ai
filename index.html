@@ -340,7 +340,7 @@
 
     <script>
         (function () {
-            const WEBHOOK_URL = "https://unmarginated-unhomogeneously-reanna.ngrok-free.dev/webhook/firstline-chat";
+            const WEBHOOK_URL = "https://sop-assistant.onrender.com/api/v1/query";
 
             const openBtn  = document.getElementById("open-btn");
             const closeBtn = document.getElementById("close-btn");
@@ -435,10 +435,9 @@
                     const res = await fetch(WEBHOOK_URL, {
                         method: "POST",
                         headers: {
-                            "Content-Type": "application/json",
-                            "ngrok-skip-browser-warning": "true"
+                            "Content-Type": "application/json"
                         },
-                        body: JSON.stringify({ message: text })
+                        body: JSON.stringify({ query: text })
                     });
 
                     removeTypingIndicator();
@@ -449,8 +448,8 @@
                     }
 
                     const data = await res.json().catch(() => null);
-                    const reply = data && typeof data.reply === "string" && data.reply.trim()
-                        ? data.reply
+                    const reply = data && typeof data.answer === "string" && data.answer.trim()
+                        ? data.answer
                         : "I didn't get a response. Please try again.";
                     addMessage("assistant", reply);
                 } catch (err) {
