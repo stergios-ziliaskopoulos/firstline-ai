@@ -341,6 +341,7 @@
     <script>
         (function () {
             const WEBHOOK_URL = "https://sop-assistant.onrender.com/api/v1/demo/query";
+            const HANDOFF_URL = "https://sop-assistant.onrender.com/api/v1/demo/handoff";
 
             const openBtn  = document.getElementById("open-btn");
             const closeBtn = document.getElementById("close-btn");
@@ -352,6 +353,7 @@
 
             let isOpen = false;
             let hasGreeted = false;
+            const chatHistory = [];
 
             function openChat() {
                 chatWin.classList.remove("hidden-anim");
@@ -386,6 +388,8 @@
             });
 
             function addMessage(role, text) {
+                chatHistory.push({ role, text });
+
                 const wrap = document.createElement("div");
                 wrap.className = "flex " + (role === "user" ? "justify-end" : "justify-start");
 
@@ -399,6 +403,67 @@
                 messages.appendChild(wrap);
                 messages.scrollTop = messages.scrollHeight;
                 return wrap;
+            }
+
+            function addHandoffForm(originalQuestion) {
+                addMessage("assistant", "I couldn't find this in our docs. Can I get your email so our team can help you directly?");
+
+                const wrap = document.createElement("div");
+                wrap.className = "flex justify-start";
+                wrap.id = "handoff-form-wrap";
+                wrap.innerHTML = `
+                    <div class="max-w-[85%] bg-zinc-800 border border-zinc-700/50 rounded-2xl rounded-bl-sm px-3.5 py-3">
+                        <form id="handoff-form" class="flex flex-col gap-2">
+                            <input
+                                type="email"
+                                id="handoff-email"
+                                required
+                                placeholder="you@company.com"
+                                class="w-full bg-zinc-900/80 text-sm text-zinc-100 placeholder-zinc-500 rounded-lg px-3 py-2 border border-zinc-600/50 focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40"
+                            />
+                            <button type="submit" class="w-full text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg px-3 py-2 transition">
+                                Connect me with the team
+                            </button>
+                        </form>
+                    </div>`;
+                messages.appendChild(wrap);
+                messages.scrollTop = messages.scrollHeight;
+
+                const handoffForm = document.getElementById("handoff-form");
+                const emailInput = document.getElementById("handoff-email");
+
+                handoffForm.addEventListener("submit", async (ev) => {
+                    ev.preventDefault();
+                    const email = emailInput.value.trim();
+                    if (!email) return;
+
+                    const submitBtn = handoffForm.querySelector("button");
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = "Sending...";
+
+                    const recentMessages = chatHistory.slice(-3).map(m => ({
+                        role: m.role,
+                        text: m.text
+                    }));
+
+                    try {
+                        await fetch(HANDOFF_URL, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                email: email,
+                                question: originalQuestion,
+                                chat_context: recentMessages
+                            })
+                        });
+                    } catch (e) {
+                        // Still show success to the user
+                    }
+
+                    wrap.remove();
+                    addMessage("assistant", "Thanks! Our team will reach out to you shortly.");
+                    input.focus();
+                });
             }
 
             function addTypingIndicator() {
@@ -452,6 +517,10 @@
                         ? data.answer
                         : "I didn't get a response. Please try again.";
                     addMessage("assistant", reply);
+
+                    if (data && data.needs_handoff) {
+                        addHandoffForm(text);
+                    }
                 } catch (err) {
                     removeTypingIndicator();
                     addMessage("assistant", "Network error — couldn't reach the assistant. Please check your connection.");
