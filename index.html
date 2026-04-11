@@ -285,10 +285,10 @@
     </style>
 
     <!-- Chat widget root -->
-    <div class="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3">
+    <div class="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 pointer-events-none">
 
         <!-- Chat window -->
-        <div id="chat-window" class="chat-window hidden-anim w-[360px] h-[520px] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl shadow-black/50 flex flex-col overflow-hidden">
+        <div id="chat-window" class="chat-window hidden-anim w-[360px] h-[520px] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl shadow-black/50 flex flex-col overflow-hidden pointer-events-auto">
 
             <!-- Header -->
             <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur">
@@ -332,7 +332,7 @@
         <!-- Floating button -->
         <button
             id="open-btn"
-            class="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-900/40 flex items-center justify-center transition hover:scale-105 active:scale-95"
+            class="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-900/40 flex items-center justify-center transition hover:scale-105 active:scale-95 pointer-events-auto"
             aria-label="Open chat"
         >
             <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
