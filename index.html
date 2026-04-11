@@ -441,10 +441,9 @@
                     submitBtn.disabled = true;
                     submitBtn.textContent = "Sending...";
 
-                    const recentMessages = chatHistory.slice(-3).map(m => ({
-                        role: m.role,
-                        text: m.text
-                    }));
+                    const recentMessages = chatHistory.slice(-3).map(m =>
+                        (m.role === "user" ? "User" : "Assistant") + ": " + m.text
+                    ).join("\n");
 
                     try {
                         await fetch(HANDOFF_URL, {
