@@ -465,8 +465,8 @@
                 messages.appendChild(wrap);
                 messages.scrollTop = messages.scrollHeight;
 
-                const handoffForm = document.getElementById("handoff-form");
-                const emailInput = document.getElementById("handoff-email");
+                const handoffForm = wrap.querySelector("#handoff-form");
+                const emailInput = wrap.querySelector("#handoff-email");
 
                 handoffForm.addEventListener("submit", async (ev) => {
                     ev.preventDefault();
