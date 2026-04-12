@@ -410,6 +410,7 @@
             }
 
             function addResolutionButtons(originalQuestion) {
+                console.log("Resolution buttons added");
                 const wrap = document.createElement("div");
                 wrap.className = "flex justify-start";
                 const inner = document.createElement("div");
@@ -430,6 +431,7 @@
                 });
 
                 noBtn.addEventListener("click", () => {
+                    console.log("No button clicked");
                     wrap.remove();
                     addHandoffForm(originalQuestion);
                 });
@@ -560,6 +562,7 @@
                     if (data && data.needs_handoff) {
                         addHandoffForm(text);
                     } else {
+                        console.log("Answer received, needs_handoff:", data.needs_handoff);
                         addResolutionButtons(text);
                     }
                 } catch (err) {
