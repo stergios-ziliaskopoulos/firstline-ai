@@ -409,6 +409,38 @@
                 return wrap;
             }
 
+            function addResolutionButtons(originalQuestion) {
+                const wrap = document.createElement("div");
+                wrap.className = "flex justify-start";
+                const inner = document.createElement("div");
+                inner.className = "flex gap-2 mt-1";
+
+                const yesBtn = document.createElement("button");
+                yesBtn.textContent = "\u2713 Yes, this helped";
+                yesBtn.className = "text-xs text-zinc-400 border border-zinc-700/50 rounded-lg px-3 py-1.5 hover:bg-zinc-800 hover:text-zinc-200 transition";
+
+                const noBtn = document.createElement("button");
+                noBtn.textContent = "\u2717 No \u2014 connect me to the team";
+                noBtn.className = "text-xs text-zinc-400 border border-zinc-700/50 rounded-lg px-3 py-1.5 hover:bg-zinc-800 hover:text-zinc-200 transition";
+
+                yesBtn.addEventListener("click", () => {
+                    wrap.remove();
+                    console.log("resolved", { resolved: true, question: originalQuestion });
+                    addMessage("assistant", "Glad I could help! \uD83D\uDE0A");
+                });
+
+                noBtn.addEventListener("click", () => {
+                    wrap.remove();
+                    addHandoffForm(originalQuestion);
+                });
+
+                inner.appendChild(yesBtn);
+                inner.appendChild(noBtn);
+                wrap.appendChild(inner);
+                messages.appendChild(wrap);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
             function addHandoffForm(originalQuestion) {
                 addMessage("assistant", "I couldn't find this in our docs. Can I get your email so our team can help you directly?");
 
@@ -527,6 +559,8 @@
 
                     if (data && data.needs_handoff) {
                         addHandoffForm(text);
+                    } else {
+                        addResolutionButtons(text);
                     }
                 } catch (err) {
                     removeTypingIndicator();
