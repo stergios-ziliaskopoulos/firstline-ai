@@ -575,14 +575,18 @@
             }
 
             function addHandoffForm(originalQuestion) {
-                addMessage("assistant", "I couldn't find this in our docs. Can I get your email so our team can help you directly?");
-
                 const wrap = document.createElement("div");
                 wrap.className = "flex justify-start";
                 wrap.id = "handoff-form-wrap";
                 wrap.innerHTML = `
-                    <div class="max-w-[85%] bg-zinc-800 border border-zinc-700/50 rounded-2xl rounded-bl-sm px-3.5 py-3">
-                        <form id="handoff-form" class="flex flex-col gap-2">
+                    <div class="max-w-[85%] bg-zinc-800 border border-zinc-700/50 rounded-2xl rounded-bl-sm px-3.5 py-3 space-y-2">
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Our bot couldn't find a reliable answer. Submit your email and the team will follow up with the full conversation transcript.
+                        </p>
+                        <p class="text-xs text-zinc-500 italic">
+                            Transcript included · Typical response within 4 hours
+                        </p>
+                        <form id="handoff-form" class="flex flex-col gap-2 mt-1">
                             <input
                                 type="email"
                                 id="handoff-email"
@@ -591,7 +595,7 @@
                                 class="w-full bg-zinc-900/80 text-sm text-zinc-100 placeholder-zinc-500 rounded-lg px-3 py-2 border border-zinc-600/50 focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40"
                             />
                             <button type="submit" class="w-full text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg px-3 py-2 transition">
-                                Connect me with the team
+                                Submit Ticket →
                             </button>
                         </form>
                     </div>`;
@@ -626,12 +630,20 @@
                                 history: history
                             })
                         });
-                    } catch (e) {
-                        // Still show success to the user
-                    }
+                    } catch (e) {}
 
                     wrap.remove();
-                    addMessage("assistant", "Got it \u2014 I've flagged this for the team. You'll hear back within 4 hours. \u23F1\uFE0F");
+
+                    const successWrap = document.createElement("div");
+                    successWrap.className = "flex justify-start";
+                    successWrap.innerHTML = `
+                        <div class="max-w-[85%] bg-zinc-800 border border-emerald-500/20 rounded-2xl rounded-bl-sm px-3.5 py-3 space-y-1">
+                            <p class="text-sm text-emerald-400 font-medium">✅ Ticket submitted</p>
+                            <p class="text-xs text-zinc-400">Your request has been sent to the team.</p>
+                            <p class="text-xs text-zinc-500">Transcript included · Typical response within 4 hours</p>
+                        </div>`;
+                    messages.appendChild(successWrap);
+                    messages.scrollTop = messages.scrollHeight;
                     input.focus();
                 });
             }
