@@ -495,6 +495,27 @@
                 if (!hasGreeted) {
                     addMessage("assistant", "Hi! I'm the TrustQueue assistant. How can I help you today?");
                     hasGreeted = true;
+
+                    if (!hasGreeted) return; // guard already flipped above
+
+                    const pillWrap = document.createElement("div");
+                    pillWrap.id = "icebreaker-pills";
+                    pillWrap.className = "flex flex-wrap gap-2 px-1 mt-1";
+                    pillWrap.innerHTML = `
+                        <button class="pill-btn text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 rounded-full px-3 py-1.5 hover:bg-indigo-500/20 transition">Check pricing</button>
+                        <button class="pill-btn text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 rounded-full px-3 py-1.5 hover:bg-indigo-500/20 transition">Do you offer refunds?</button>
+                        <button class="pill-btn text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 rounded-full px-3 py-1.5 hover:bg-indigo-500/20 transition">Does Starter include human handoff?</button>
+                    `;
+                    messages.appendChild(pillWrap);
+                    messages.scrollTop = messages.scrollHeight;
+
+                    pillWrap.querySelectorAll(".pill-btn").forEach(btn => {
+                        btn.addEventListener("click", () => {
+                            pillWrap.remove();
+                            input.value = btn.textContent;
+                            form.requestSubmit();
+                        });
+                    });
                 }
                 setTimeout(() => input.focus(), 200);
             }
