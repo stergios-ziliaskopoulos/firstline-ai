@@ -542,7 +542,7 @@
                 }
             });
 
-            function addMessage(role, text) {
+            function addMessage(role, text, type = "normal") {
                 chatHistory.push({ role, text });
                 history.push({ role, content: text });
 
@@ -550,10 +550,24 @@
                 wrap.className = "flex " + (role === "user" ? "justify-end" : "justify-start");
 
                 const bubble = document.createElement("div");
-                bubble.className = role === "user"
-                    ? "max-w-[80%] bg-indigo-600 text-white text-sm rounded-2xl rounded-br-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words"
-                    : "max-w-[80%] bg-zinc-800 text-zinc-100 text-sm rounded-2xl rounded-bl-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words border border-zinc-700/50";
-                bubble.textContent = text;
+
+                if (role === "user") {
+                    bubble.className = "max-w-[80%] bg-indigo-600 text-white text-sm rounded-2xl rounded-br-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words";
+                } else if (type === "cautious") {
+                    bubble.className = "max-w-[80%] bg-zinc-800 text-zinc-100 text-sm rounded-2xl rounded-bl-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words border border-amber-500/30";
+                    const badge = document.createElement("div");
+                    badge.className = "text-xs text-amber-400 font-medium mb-1.5";
+                    badge.textContent = "⚠️ Partial match — verify with your team";
+                    bubble.appendChild(badge);
+                } else if (type === "handoff") {
+                    bubble.className = "max-w-[80%] bg-zinc-800 text-zinc-100 text-sm rounded-2xl rounded-bl-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words border border-red-500/30";
+                } else {
+                    bubble.className = "max-w-[80%] bg-zinc-800 text-zinc-100 text-sm rounded-2xl rounded-bl-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words border border-zinc-700/50";
+                }
+
+                const textNode = document.createElement("span");
+                textNode.textContent = text;
+                bubble.appendChild(textNode);
 
                 wrap.appendChild(bubble);
                 messages.appendChild(wrap);
@@ -721,7 +735,10 @@
                     const reply = data && typeof data.answer === "string" && data.answer.trim()
                         ? data.answer
                         : "I didn't get a response. Please try again.";
-                    addMessage("assistant", reply);
+                    const msgType = data.needs_handoff ? "handoff"
+                        : (data.confidence_score !== undefined && data.confidence_score < 0.65) ? "cautious"
+                        : "normal";
+                    addMessage("assistant", reply, msgType);
 
                     if (data && data.needs_handoff) {
                         addHandoffForm(text);
