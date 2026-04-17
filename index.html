@@ -516,6 +516,16 @@
                             form.requestSubmit();
                         });
                     });
+
+                    if (messages.children.length === 1) {
+                        const emptyHint = document.createElement("div");
+                        emptyHint.id = "empty-hint";
+                        emptyHint.className = "flex justify-start";
+                        emptyHint.innerHTML = `<span class="text-xs text-zinc-600 italic px-1">
+                            Ask about pricing, integrations, or policies
+                        </span>`;
+                        messages.appendChild(emptyHint);
+                    }
                 }
                 setTimeout(() => input.focus(), 200);
             }
@@ -688,7 +698,8 @@
                 wrap.className = "flex justify-start";
                 wrap.id = "typing-indicator";
                 wrap.innerHTML = `
-                    <div class="bg-zinc-800 border border-zinc-700/50 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-1">
+                    <div class="bg-zinc-800 border border-zinc-700/50 rounded-2xl rounded-bl-sm px-4 py-3 flex items-center gap-2">
+                        <span class="text-xs text-zinc-500">Checking documentation…</span>
                         <span class="typing-dot w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
                         <span class="typing-dot w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
                         <span class="typing-dot w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
@@ -708,6 +719,9 @@
                 if (!text) return;
 
                 if (!sessionId) sessionId = crypto.randomUUID();
+
+                const emptyHint = document.getElementById("empty-hint");
+                if (emptyHint) emptyHint.remove();
 
                 addMessage("user", text);
                 input.value = "";
