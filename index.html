@@ -747,10 +747,16 @@
                     const successWrap = document.createElement("div");
                     successWrap.className = "flex justify-start";
                     successWrap.innerHTML = `
-                        <div class="max-w-[85%] bg-zinc-800 border border-emerald-500/20 rounded-2xl rounded-bl-sm px-3.5 py-3 space-y-1">
+                        <div class="max-w-[85%] bg-zinc-800 border border-emerald-500/20 rounded-2xl rounded-bl-sm px-3.5 py-3 space-y-2">
                             <p class="text-sm text-emerald-400 font-medium">✅ Ticket submitted</p>
                             <p class="text-xs text-zinc-400">Your request has been sent to the team.</p>
                             <p class="text-xs text-zinc-500">Transcript included · Typical response within 4 hours</p>
+                            <div class="border-t border-zinc-700/50 pt-2 mt-1">
+                                <p class="text-xs text-zinc-500 italic">This is exactly what your users will see when confidence is low. Want this running on your site?</p>
+                                <a href="https://tally.so/r/D4JVAb" target="_self" class="inline-block mt-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-medium transition">
+                                    Get set up in 24 hours →
+                                </a>
+                            </div>
                         </div>`;
                     messages.appendChild(successWrap);
                     messages.scrollTop = messages.scrollHeight;
