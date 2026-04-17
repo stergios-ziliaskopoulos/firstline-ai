@@ -109,7 +109,7 @@
 
     <script>
         (function () {
-            const STATS_URL = "https://sop-assistant.onrender.com/api/v1/admin/stats";
+            const STATS_URL = "https://sop-assistant.onrender.com/api/v1/public/stats";
             const REFRESH_MS = 60000;
 
             const elTotal = document.getElementById("metric-total");
@@ -162,14 +162,12 @@
                         showError(`Request failed (HTTP ${res.status}).`);
                         return;
                     }
-                    const data = await res.json();
-                    const qs = (data && data.query_stats) || {};
-                    const hs = (data && data.handoff_stats) || {};
+                    const data = await res.json() || {};
 
-                    elTotal.textContent = fmtNumber(qs.total_queries);
-                    elResolution.textContent = fmtPercent(qs.resolution_rate);
-                    elConfidence.textContent = fmtScore(qs.avg_confidence);
-                    elHandoffs.textContent = fmtNumber(hs.total_handoffs);
+                    elTotal.textContent = fmtNumber(data.total_queries);
+                    elResolution.textContent = fmtPercent(data.resolution_rate);
+                    elConfidence.textContent = fmtScore(data.avg_confidence);
+                    elHandoffs.textContent = fmtNumber(data.total_handoffs);
 
                     metricEls.forEach(el => el.classList.remove("loading"));
 
