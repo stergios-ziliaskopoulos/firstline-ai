@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — TrustQueue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            950: '#0a0e1a',
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0a0e1a;
+            color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="border-b border-white/5 bg-brand-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="/" class="text-xl font-bold tracking-tight text-white">TrustQueue</a>
+                <a href="https://tally.so/r/D4JVAb" target="_self" class="inline-flex items-center px-5 py-2 text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-500 transition">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow py-16 sm:py-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mb-3">Terms of Service</h1>
+            <p class="text-sm text-slate-500 mb-10">Last updated: April 2026</p>
+
+            <div class="space-y-10 text-slate-300 leading-relaxed">
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">1. Service</h2>
+                    <p class="text-slate-400">TrustQueue provides an AI support widget that answers questions grounded in the customer's uploaded documentation and hands off to a human when confidence is low. By using the service, you agree to these terms.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">2. Billing</h2>
+                    <p class="text-slate-400">TrustQueue is sold as a monthly subscription. Payments are processed by <span class="text-slate-200 font-medium">CREEM.io</span>, our payment provider. Fees are charged at the start of each billing period in the currency displayed at checkout.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">3. Refunds</h2>
+                    <p class="text-slate-400">We offer a <span class="text-slate-200 font-medium">7-day money-back guarantee on your first payment</span>. If TrustQueue doesn't work for you, email <a href="mailto:support@trustqueue.com" class="text-indigo-400 hover:text-indigo-300 transition">support@trustqueue.com</a> within 7 days of your first charge and we'll refund it in full. Subsequent renewals are non-refundable.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">4. Cancellation</h2>
+                    <p class="text-slate-400">You may cancel at any time. Your subscription remains active until the end of the current billing period, after which no further charges will be made. There are no long-term contracts.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">5. Acceptable use</h2>
+                    <p class="text-slate-400">You agree not to use TrustQueue to host, distribute, or respond to illegal content, to send spam or unsolicited bulk communications, or to attempt to reverse-engineer, resell, or abuse the service. We may suspend accounts that violate these rules.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">6. Liability</h2>
+                    <p class="text-slate-400">The service is provided <span class="text-slate-200 font-medium">as-is</span>. At this early stage, TrustQueue does not offer a formal uptime guarantee or SLA. We work to keep the service reliable, but we are not liable for indirect, incidental, or consequential damages arising from downtime or errors. Our aggregate liability is capped at the amount paid in the prior three months of subscription fees.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-semibold text-white mb-3">7. Contact</h2>
+                    <p class="text-slate-400">For questions about these terms, contact <a href="mailto:support@trustqueue.com" class="text-indigo-400 hover:text-indigo-300 transition">support@trustqueue.com</a>.</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-10 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <span class="text-sm font-semibold tracking-tight text-slate-500">TrustQueue</span>
+            <p class="text-slate-600 text-sm">&copy; 2026 TrustQueue. All rights reserved.</p>
+            <div class="flex items-center gap-2">
+                <a href="/privacy" class="text-slate-600 hover:text-slate-400 text-sm transition">Privacy</a>
+                <span class="text-slate-700">·</span>
+                <a href="/terms" class="text-slate-600 hover:text-slate-400 text-sm transition">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
