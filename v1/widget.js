@@ -6,6 +6,14 @@
         return;
     }
 
+    var widgetName = (scriptEl && scriptEl.dataset && scriptEl.dataset.name) ? scriptEl.dataset.name : "TrustQueue Support";
+    var agentName = (scriptEl && scriptEl.dataset && scriptEl.dataset.agent) ? scriptEl.dataset.agent : "T";
+    var agentInitial = (agentName.charAt(0) || "T").toUpperCase();
+
+    function tqEscape(s) {
+        return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
     var WEBHOOK_URL = "https://sop-assistant.onrender.com/api/v1/query/" + tenantId;
     var HANDOFF_URL = "https://sop-assistant.onrender.com/api/v1/demo/handoff";
 
@@ -68,11 +76,11 @@
                 '<div class="tq-header">' +
                     '<div class="tq-header-left">' +
                         '<div class="tq-avatar">' +
-                            '<div class="tq-avatar-bubble">T</div>' +
+                            '<div class="tq-avatar-bubble">' + tqEscape(agentInitial) + '</div>' +
                             '<span class="tq-avatar-dot"></span>' +
                         '</div>' +
                         '<div>' +
-                            '<div class="tq-title">TrustQueue Support</div>' +
+                            '<div class="tq-title">' + tqEscape(widgetName) + '</div>' +
                             '<div class="tq-subtitle">Usually replies instantly</div>' +
                         '</div>' +
                     '</div>' +

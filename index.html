@@ -38,7 +38,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="#" class="text-xl font-bold tracking-tight text-white">TrustQueue</a>
-                <a href="#pricing" target="_self" class="inline-flex items-center px-5 py-2 text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-500 transition">
+                <a href="#pricing" target="_self" class="inline-flex items-center px-5 py-2 text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition">
                     Get Started
                 </a>
             </div>
@@ -49,27 +49,127 @@
 
         <!-- Hero -->
         <section class="pt-20 pb-24 sm:pt-28 sm:pb-32">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-8">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    Now live &mdash; onboard in 24 hours
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                    <!-- Copy -->
+                    <div class="text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-8">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            Now live. Onboard in 24 hours.
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
+                            AI Support That Knows<br class="hidden sm:block">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300">When to Stop</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-slate-400 leading-relaxed mb-10">
+                            Most support bots will answer anything, even when they're guessing. TrustQueue only answers from your approved documentation. It cites the source. When confidence is too low, it routes to a human instead.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                            <a href="#chat-widget-root" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-600/20 transition" onclick="document.getElementById('open-btn').click()">
+                                Try Live Demo
+                            </a>
+                            <a href="#pricing" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-xl text-slate-300 border border-white/10 bg-white/5 hover:bg-white/10 transition">
+                                See Pricing
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Product mockup -->
+                    <div class="flex justify-center">
+                        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl shadow-xl shadow-black/40 overflow-hidden w-full max-w-[340px] text-left">
+
+                            <!-- Header -->
+                            <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur shrink-0">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <div class="relative shrink-0">
+                                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-700 flex items-center justify-center text-white text-sm font-semibold">T</div>
+                                        <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-zinc-900 rounded-full"></span>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <div class="text-sm font-medium text-zinc-100 leading-tight truncate">TrustQueue Support</div>
+                                        <div class="text-xs text-zinc-500 leading-tight">Checking approved docs</div>
+                                    </div>
+                                </div>
+                                <button class="shrink-0 ml-3 text-zinc-400 hover:text-zinc-200 transition" aria-label="Close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                </button>
+                            </div>
+
+                            <!-- Messages -->
+                            <div class="px-3 py-4 space-y-3 bg-zinc-950/30">
+
+                                <!-- Example 1: grounded answer + source -->
+                                <div class="flex justify-end">
+                                    <div class="bg-blue-600 text-white text-xs rounded-2xl rounded-br-sm px-3 py-2 max-w-[78%] leading-relaxed">
+                                        Does Starter include human handoff?
+                                    </div>
+                                </div>
+                                <div class="flex justify-start">
+                                    <div class="bg-zinc-800 border border-zinc-700 text-zinc-100 text-xs rounded-2xl rounded-bl-sm px-3 py-2.5 max-w-[82%] space-y-2">
+                                        <p class="leading-relaxed">Yes. Human handoff is included on Starter.</p>
+                                        <div class="flex flex-wrap items-center gap-1.5 pt-1.5 border-t border-zinc-700/50">
+                                            <span class="text-[10px] text-zinc-400 bg-zinc-900 border border-zinc-700 rounded px-1.5 py-0.5">Source: pricing-plans</span>
+                                            <span class="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 rounded px-1.5 py-0.5">Confidence: High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="border-t border-zinc-800 my-1"></div>
+
+                                <!-- Example 2: low confidence + handoff state -->
+                                <div class="flex justify-end">
+                                    <div class="bg-blue-600 text-white text-xs rounded-2xl rounded-br-sm px-3 py-2 max-w-[78%] leading-relaxed">
+                                        Can you confirm if this edge case is covered in your SLA?
+                                    </div>
+                                </div>
+                                <div class="flex justify-start">
+                                    <div class="bg-zinc-800 border border-amber-500/30 text-zinc-100 text-xs rounded-2xl rounded-bl-sm px-3 py-2.5 max-w-[82%] space-y-1.5">
+                                        <p class="leading-relaxed">I don't have a reliable answer for this in your documentation.</p>
+                                        <span class="inline-block text-[10px] text-amber-400 bg-amber-500/10 border border-amber-500/20 rounded px-1.5 py-0.5">Confidence: Low</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-start">
+                                    <div class="bg-zinc-800 border border-zinc-700 rounded-xl px-3 py-3 max-w-[82%]">
+                                        <div class="flex items-center gap-2 mb-2.5">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-red-400 shrink-0"></span>
+                                            <p class="text-[10px] font-semibold text-zinc-300 uppercase tracking-wider">Human handoff triggered</p>
+                                        </div>
+                                        <ul class="space-y-1.5">
+                                            <li class="flex items-center gap-1.5 text-[10px] text-zinc-400">
+                                                <svg class="w-3 h-3 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                                Customer email collected
+                                            </li>
+                                            <li class="flex items-center gap-1.5 text-[10px] text-zinc-400">
+                                                <svg class="w-3 h-3 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                                Full transcript sent to team
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Frozen input row -->
+                            <div class="border-t border-zinc-800 bg-zinc-900 px-3 py-2.5 flex items-center gap-2">
+                                <div class="flex-1 bg-zinc-800/60 border border-zinc-700/60 rounded-xl px-3 py-2 text-xs text-zinc-600 select-none">
+                                    Type your message…
+                                </div>
+                                <div class="shrink-0 w-8 h-8 rounded-xl bg-zinc-800 border border-zinc-700/50 flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-zinc-600"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                                </div>
+                            </div>
+
+                            <!-- Trust footer -->
+                            <div class="px-3 py-2 border-t border-zinc-800 flex items-center justify-between gap-2">
+                                <span class="text-[10px] text-zinc-600 leading-tight">Answers only from approved docs · Handoff when confidence is low</span>
+                                <span class="text-[10px] text-zinc-700 shrink-0">TrustQueue</span>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
-                    Your AI Support Agent That<br class="hidden sm:block">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-300">Knows When to Stop</span>
-                </h1>
-                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-400 leading-relaxed mb-10">
-                    TrustQueue answers only from your docs and hands off to a human the moment it's not sure. No loops. No hallucinations. No hidden contact buttons.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#chat-widget-root" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/25 transition" onclick="document.getElementById('open-btn').click()">
-                        Try Live Demo
-                    </a>
-                    <a href="#pricing" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-xl text-slate-300 border border-white/10 bg-white/5 hover:bg-white/10 transition">
-                        See Pricing
-                    </a>
-                </div>
-                <p class="mt-8 text-sm text-slate-500 max-w-xl mx-auto">Klarna replaced 700 agents with AI in 2024. By 2026, they were rehiring humans. TrustQueue takes a different position.</p>
             </div>
         </section>
 
@@ -89,7 +189,7 @@
                     They're incentivised to trap users, not resolve them.
                   </h2>
                   <p class="text-white/70 text-lg leading-relaxed">
-                    Most AI support bots charge per resolution - which creates a perverse incentive to keep users stuck in hallucination loops rather than hand off cleanly. They prioritize deflection over your customer's experience.
+                    Most AI support tools charge per resolution. That creates a direct incentive to keep users stuck rather than hand off cleanly. Deflection gets rewarded. Your customer's experience doesn't.
                   </p>
                 </div>
               </div>
@@ -103,7 +203,7 @@
                   <div>
                     <p class="text-sm font-medium text-emerald-400 uppercase tracking-wider mb-2">The TrustQueue Approach</p>
                     <p class="text-white/80 text-lg leading-relaxed">
-                      TrustQueue is not designed to maximise deflection. It is designed to maximise trust. It answers <strong class="text-white">only from your documentation</strong>. When confidence is low, it triggers a clean human handoff — automatically, transparently, every time. Human handoff is a core product feature, not a premium add-on.
+                      TrustQueue is not designed to maximise deflection. It is designed to maximise trust. It answers <strong class="text-white">only from your documentation</strong>. When confidence is low, it stops and routes to a human. Automatically, every time. Human handoff is a core product feature, not a premium add-on.
                     </p>
                   </div>
                 </div>
@@ -137,7 +237,7 @@
         <section class="py-20 bg-white/[0.02] border-y border-white/5">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
-                    <h2 class="text-3xl font-bold tracking-tight text-white">Why teams switch to TrustQueue</h2>
+                    <h2 class="text-3xl font-bold tracking-tight text-white">Why TrustQueue is built differently</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
 
@@ -146,8 +246,8 @@
                         <div class="w-11 h-11 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-5">
                             <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-white mb-2">Zero Hallucinations</h3>
-                        <p class="text-slate-400 leading-relaxed">Answers only from your uploaded docs. If it's not there, it won't make it up, and it won't trap your customer in a loop either.</p>
+                        <h3 class="text-lg font-semibold text-white mb-2">Grounded Answers Only</h3>
+                        <p class="text-slate-400 leading-relaxed">TrustQueue only retrieves answers from documentation you've approved. If the answer isn't there, it won't fabricate one. It routes to a human instead.</p>
                     </div>
 
                     <!-- Clean Human Handoff -->
@@ -156,16 +256,16 @@
                             <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">Clean Human Handoff</h3>
-                        <p class="text-slate-400 leading-relaxed">When confidence drops below threshold, TrustQueue stops, asks for the customer's email, and notifies your team instantly with the full conversation transcript.</p>
+                        <p class="text-slate-400 leading-relaxed">When confidence drops below your threshold, TrustQueue stops, collects the customer's email, and notifies your team with the full conversation transcript. Human handoff is a core feature, not a premium upsell.</p>
                     </div>
 
                     <!-- Bootstrapper Pricing -->
                     <div class="bg-brand-900 border border-white/[0.06] rounded-2xl p-8">
-                        <div class="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center mb-5">
-                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <div class="w-11 h-11 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
                         <h3 class="text-lg font-semibold text-white mb-2">Bootstrapper Pricing</h3>
-                        <p class="text-slate-400 leading-relaxed">$49/mo flat. No per-resolution fees like Intercom. No enterprise contracts. Our only incentive is to actually help your customers.</p>
+                        <p class="text-slate-400 leading-relaxed">$49/mo flat. No per-resolution fees. No enterprise contracts. Our only incentive is to resolve your customer's question or pass it to a human cleanly.</p>
                     </div>
 
                 </div>
@@ -176,7 +276,7 @@
         <section class="py-20 sm:py-24">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-14">
-                    <h2 class="text-3xl font-bold tracking-tight text-white">From docs to live support in 24 hours</h2>
+                    <h2 class="text-3xl font-bold tracking-tight text-white">Set up by us. Calibrated to your docs.</h2>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
 
@@ -184,24 +284,24 @@
                     <div class="bg-brand-900 border border-white/[0.06] rounded-2xl p-8 relative">
                         <div class="text-3xl mb-4">&#x1F4C4;</div>
                         <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2">Step 1</div>
-                        <h3 class="text-lg font-semibold text-white mb-2">Upload your docs</h3>
-                        <p class="text-slate-400 leading-relaxed">Drop in your FAQs, SOPs, help center articles, or Notion pages. TrustQueue ingests them and builds your knowledge base.</p>
+                        <h3 class="text-lg font-semibold text-white mb-2">Send us your documentation</h3>
+                        <p class="text-slate-400 leading-relaxed">Share your FAQs, SOPs, help center articles, or Notion pages. We audit the content, clean it up where needed, and build a knowledge base your AI is authorized to use.</p>
                     </div>
 
                     <!-- Step 2 -->
                     <div class="bg-brand-900 border border-white/[0.06] rounded-2xl p-8 relative">
                         <div class="text-3xl mb-4">&#x1F916;</div>
                         <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2">Step 2</div>
-                        <h3 class="text-lg font-semibold text-white mb-2">AI answers with confidence</h3>
-                        <p class="text-slate-400 leading-relaxed">Every question is matched against your docs. If confidence is high, TrustQueue answers with source attribution. If not, it stops.</p>
+                        <h3 class="text-lg font-semibold text-white mb-2">Every answer is grounded and cited</h3>
+                        <p class="text-slate-400 leading-relaxed">Each question is matched against your documentation with a confidence score. If confidence is high, TrustQueue answers and cites the source. If not, it stops and routes to a human.</p>
                     </div>
 
                     <!-- Step 3 -->
                     <div class="bg-brand-900 border border-white/[0.06] rounded-2xl p-8 relative">
                         <div class="text-3xl mb-4">&#x1F91D;</div>
                         <div class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2">Step 3</div>
-                        <h3 class="text-lg font-semibold text-white mb-2">Clean handoff when needed</h3>
-                        <p class="text-slate-400 leading-relaxed">When the AI isn't sure, it asks for the customer's email and notifies your team instantly with the full conversation transcript.</p>
+                        <h3 class="text-lg font-semibold text-white mb-2">Human handoff, not a dead end</h3>
+                        <p class="text-slate-400 leading-relaxed">When confidence falls below the threshold, TrustQueue collects the customer's email and notifies your team with the full conversation transcript. The customer gets a real reply. You never lose context.</p>
                     </div>
 
                 </div>
@@ -219,13 +319,13 @@
                     <!-- Confidence Routing -->
                     <div class="bg-brand-900 border border-white/[0.06] rounded-2xl p-7">
                         <h3 class="text-base font-semibold text-white mb-2">Confidence Routing</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">3-tier system: high confidence answers, conservative answers, or hard handoff. Never a guess.</p>
+                        <p class="text-sm text-slate-400 leading-relaxed">A 3-tier system: high-confidence answer, cautious answer flagged for review, or hard human handoff. Calibrated to your documentation, not a default setting.</p>
                     </div>
 
                     <!-- Source Attribution -->
                     <div class="bg-brand-900 border border-white/[0.06] rounded-2xl p-7">
                         <h3 class="text-base font-semibold text-white mb-2">Source Attribution</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">Every answer shows exactly which document it came from. Full transparency, zero hallucinations.</p>
+                        <p class="text-sm text-slate-400 leading-relaxed">Every answer shows exactly which document it came from. Your customers can see where the information is sourced. So can you.</p>
                     </div>
 
                     <!-- Session Memory -->
@@ -267,7 +367,7 @@
                         <span class="text-xs text-slate-500">Currently in early access with design partners</span>
                     </div>
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-sm font-semibold shrink-0">SZ</div>
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-cyan-700 flex items-center justify-center text-white text-sm font-semibold shrink-0">SZ</div>
                         <div>
                             <div class="text-sm font-medium text-white">Stergios Z.</div>
                             <div class="text-xs text-slate-500">Founder &amp; Support Operations Veteran</div>
@@ -295,7 +395,7 @@
                             </code>
                             <div class="text-xs text-zinc-600 mt-3">Works with React, Webflow, WordPress, or vanilla HTML. No backend changes required.</div>
                         </div>
-                        <a href="#pricing" target="_self" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-500 transition">
+                        <a href="#pricing" target="_self" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition">
                             Get set up in 24 hours →
                         </a>
                     </div>
@@ -362,7 +462,7 @@
                     <!-- Pro (Most Popular) -->
                     <div class="bg-gradient-to-b from-brand-800 to-brand-900 border border-indigo-500/40 rounded-2xl p-8 flex flex-col relative shadow-xl shadow-indigo-900/20 md:-my-2">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <span class="bg-indigo-600 text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
+                            <span class="bg-blue-600 text-white text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
                         </div>
                         <h3 class="text-xl font-semibold text-white mb-1 mt-2">Pro</h3>
                         <p class="text-sm text-slate-500 mb-6">For growing teams that need more.</p>
@@ -388,7 +488,7 @@
                                 Priority support
                             </li>
                         </ul>
-                        <a href="https://buy.polar.sh/polar_cl_eC2OcHehInde4TycRpBHx3ILh4SgpwOmDo7ab0je9dm" target="_self" class="w-full inline-flex justify-center py-3 px-4 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-md shadow-indigo-600/25 transition">
+                        <a href="https://buy.polar.sh/polar_cl_eC2OcHehInde4TycRpBHx3ILh4SgpwOmDo7ab0je9dm" target="_self" class="w-full inline-flex justify-center py-3 px-4 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-600/20 transition">
                             Get Started
                         </a>
                         <p class="mt-2 text-xs text-slate-500 text-center">After checkout: 2-min intake form, widget live within 24h</p>
@@ -435,7 +535,7 @@
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-white mb-4">Ready to stop overpaying for AI support?</h2>
                 <p class="text-lg text-slate-400 mb-8">Try the live demo right now &mdash; click the chat button in the corner.</p>
-                <a href="#pricing" target="_self" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/25 transition">
+                <a href="#pricing" target="_self" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-xl text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-600/20 transition">
                     Start for $49/month
                 </a>
             </div>
@@ -485,22 +585,22 @@
     <div class="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3 pointer-events-none">
 
         <!-- Chat window -->
-        <div id="chat-window" class="chat-window hidden-anim w-[360px] h-[520px] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl shadow-black/50 flex flex-col overflow-hidden pointer-events-auto">
+        <div id="chat-window" class="chat-window hidden-anim w-[360px] bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl shadow-black/50 flex flex-col overflow-hidden pointer-events-auto" style="height: min(520px, calc(100svh - 100px))">
 
             <!-- Header -->
             <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur">
-                <div class="flex items-center gap-2.5">
-                    <div class="relative">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-sm font-semibold">F</div>
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <div class="relative shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-semibold">T</div>
                         <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-zinc-900 rounded-full"></span>
                     </div>
-                    <div>
-                        <div class="text-sm font-medium text-zinc-100 leading-tight">TrustQueue Support</div>
+                    <div class="min-w-0">
+                        <div class="text-sm font-medium text-zinc-100 leading-tight truncate">TrustQueue Support</div>
                         <div class="text-xs text-zinc-500 leading-tight">Usually replies instantly</div>
                     </div>
                 </div>
-                <button id="close-btn" class="text-zinc-500 hover:text-zinc-200 transition" aria-label="Close chat">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <button id="close-btn" class="shrink-0 ml-2 p-1 text-zinc-400 hover:text-zinc-100 transition" aria-label="Close chat">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
             </div>
 
@@ -518,7 +618,7 @@
                 <button
                     type="submit"
                     id="send-btn"
-                    class="shrink-0 w-10 h-10 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:bg-zinc-700 disabled:cursor-not-allowed text-white flex items-center justify-center transition"
+                    class="shrink-0 w-10 h-10 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-700 disabled:cursor-not-allowed text-white flex items-center justify-center transition"
                     aria-label="Send message"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -539,7 +639,7 @@
         <!-- Floating button -->
         <button
             id="open-btn"
-            class="w-14 h-14 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-900/40 flex items-center justify-center transition hover:scale-105 active:scale-95 pointer-events-auto"
+            class="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20 flex items-center justify-center transition hover:scale-105 active:scale-95 pointer-events-auto"
             aria-label="Open chat"
         >
             <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -578,9 +678,9 @@
                     pillWrap.id = "icebreaker-pills";
                     pillWrap.className = "flex flex-wrap gap-2 px-1 mt-1";
                     pillWrap.innerHTML = `
-                        <button class="pill-btn text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 rounded-full px-3 py-1.5 hover:bg-indigo-500/20 transition">Check pricing</button>
-                        <button class="pill-btn text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 rounded-full px-3 py-1.5 hover:bg-indigo-500/20 transition">Do you offer refunds?</button>
-                        <button class="pill-btn text-xs text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 rounded-full px-3 py-1.5 hover:bg-indigo-500/20 transition">Does Starter include human handoff?</button>
+                        <button class="pill-btn text-xs text-blue-300 border border-blue-500/30 bg-blue-500/10 rounded-full px-3 py-1.5 hover:bg-blue-500/20 transition">Check pricing</button>
+                        <button class="pill-btn text-xs text-blue-300 border border-blue-500/30 bg-blue-500/10 rounded-full px-3 py-1.5 hover:bg-blue-500/20 transition">Do you offer refunds?</button>
+                        <button class="pill-btn text-xs text-blue-300 border border-blue-500/30 bg-blue-500/10 rounded-full px-3 py-1.5 hover:bg-blue-500/20 transition">Does Starter include human handoff?</button>
                     `;
                     messages.appendChild(pillWrap);
                     messages.scrollTop = messages.scrollHeight;
@@ -638,7 +738,7 @@
                 const bubble = document.createElement("div");
 
                 if (role === "user") {
-                    bubble.className = "max-w-[80%] bg-indigo-600 text-white text-sm rounded-2xl rounded-br-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words";
+                    bubble.className = "max-w-[80%] bg-blue-600 text-white text-sm rounded-2xl rounded-br-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words";
                 } else if (type === "cautious") {
                     bubble.className = "max-w-[80%] bg-zinc-800 text-zinc-100 text-sm rounded-2xl rounded-bl-sm px-3.5 py-2 leading-relaxed whitespace-pre-wrap break-words border border-amber-500/30";
                     const badge = document.createElement("div");
@@ -715,7 +815,7 @@
                                 placeholder="you@company.com"
                                 class="w-full bg-zinc-900/80 text-sm text-zinc-100 placeholder-zinc-500 rounded-lg px-3 py-2 border border-zinc-600/50 focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/40"
                             />
-                            <button type="submit" class="w-full text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg px-3 py-2 transition">
+                            <button type="submit" class="w-full text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg px-3 py-2 transition">
                                 Submit Ticket →
                             </button>
                         </form>

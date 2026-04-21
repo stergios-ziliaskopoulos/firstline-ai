@@ -1,0 +1,119 @@
+{
+  "name": "FirstLine AI - Support Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "firstline-chat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-node",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "firstline-chat"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.groq.com/openai/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "body": {
+          "model": "llama3-8b-8192",
+          "messages": [
+            {
+              "role": "system",
+              "content": "You are a helpful customer support agent for Acme Analytics, a SaaS platform for business intelligence. You help users with questions about:\n- Account setup and billing\n- API integration and documentation\n- Dashboard features and reports\n- Password resets and access issues\n- Data exports and integrations\n\nAlways be concise, friendly, and professional. If you cannot answer something, say: 'I'll connect you with our team for this one.'\n\nDo not make up information. If unsure, escalate to human."
+            },
+            {
+              "role": "user",
+              "content": "={{ $json.body.message }}"
+            }
+          ],
+          "max_tokens": 500,
+          "temperature": 0.3
+        },
+        "options": {}
+      },
+      "id": "groq-node",
+      "name": "Groq API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "groq-credentials",
+          "name": "Groq API Key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ ({ reply: $json.choices[0].message.content, status: 'ok' }) }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              },
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond-node",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [720, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Groq API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq API": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": []
+}
